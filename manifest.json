@@ -1,0 +1,57 @@
+{
+  "name": "浏览器页面排版优化插件",
+  "version": "1.0",
+  "action": {
+    "default_icon": {
+      "16": "images/shutdown.png",
+      "48": "images/shutdown.png",
+      "128": "images/shutdown.png"
+    }
+  },
+  "background": {
+    "service_worker": "scripts/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "scripts/content.js"
+      ],
+      "matches": [
+        "https://*/*"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "host_permissions": [
+    "*://www.coze.com/*"
+  ],
+  "icons": {
+    "16": "images/prettyHub.png",
+    "48": "images/prettyHub.png",
+    "128": "images/prettyHub.png"
+  },
+  "manifest_version": 3,
+  "optional_host_permissions": [
+    "*://*/"
+  ],
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "scripting",
+    "nativeMessaging"
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "https://www.coze.com/*"
+      ],
+      "resources": [
+        "styles/pretty-hub.css",
+        "scripts/pretty-hub.js",
+        "scripts/content.js"
+      ]
+    }
+  ]
+}
