@@ -46,7 +46,7 @@ const pretty = () => {
     if (!cozePrettyActive) return
     isActive ? injectCss() : removeCSS();
 
-    chrome.runtime.sendMessage({ event: "setIcon", data: { isActive } }, (response) => {
+    chrome.runtime.sendMessage({ event: "resetIcon", data: { isActive } }, (response) => {
       console.log(response);
     });
   } else {

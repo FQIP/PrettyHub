@@ -5,5 +5,5 @@
 }
 
 #root > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div.sidesheet-container {
-  grid-template-columns: unset !important;
+  grid-template-columns: unset;
 }
