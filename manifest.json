@@ -3,9 +3,9 @@
   "version": "1.0",
   "action": {
     "default_icon": {
-      "16": "images/shutdown.png",
-      "48": "images/shutdown.png",
-      "128": "images/shutdown.png"
+      "16": "images/active.png",
+      "48": "images/active.png",
+      "128": "images/active.png"
     }
   },
   "background": {

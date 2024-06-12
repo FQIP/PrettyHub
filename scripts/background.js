@@ -1,7 +1,7 @@
 const cozeSpaceBotUrlReg = /\/www\.coze\.com\/space\/\d+\/bot\/\d+$/
 
 async function setIcon(isActive) {
-  const iconPath = chrome.runtime.getURL(isActive ? 'images/star.png' : 'images/shutdown.png');
+  const iconPath = chrome.runtime.getURL(isActive ? 'images/active.png' : 'images/inActive.png');
   await chrome.action.setIcon({
     path: {
       16: iconPath,
@@ -16,17 +16,16 @@ async function setIcon(isActive) {
 }
 
 chrome.runtime.onMessage.addListener(
-  async (request, sender, sendResponse) => {
+  (request, sender, sendResponse) => {
     const { event, data } = request;
     if (event === "setIcon") {
-      try {
-        const isActive = data.isActive;
-        await setIcon(isActive)
+      setIcon(data.isActive).then(() => {
         sendResponse({ message: "图标修改成功" });
-      } catch (error) {
+      }).catch(() => {
         sendResponse({ message: "图标修改失败" });
-      }
+      })
     }
+    return true
   }
 );
 
