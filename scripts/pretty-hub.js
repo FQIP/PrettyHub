@@ -1,3 +1,4 @@
+// 重写浏览器的导航事件
 (function () {
   // 记录当前URL
   let currentUrl = location.href;
