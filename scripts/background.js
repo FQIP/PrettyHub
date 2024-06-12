@@ -25,12 +25,13 @@ chrome.runtime.onMessage.addListener(
         sendResponse({ message: "图标修改失败" });
       })
     }
+    // 表明是异步回调
     return true
   }
 );
 
 // 点击插件图标时触发
-chrome.action.onClicked.addListener(async (tab) => {
+chrome.action.onClicked.addListener((tab) => {
   chrome.scripting.executeScript({
     target: { tabId: tab.id },
     function: () => {

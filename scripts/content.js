@@ -54,12 +54,12 @@ const pretty = () => {
   }
 }
 
-// 监听localStorage变化事件
+// 监听localStorage变化
 document.addEventListener('localStorageUpdated', ({ key, newValue }) => {
   pretty()
 });
 
-// 页面地址发生变化
+// 监听页面地址变化
 document.addEventListener('locationChange', () => {
   pretty()
 });
